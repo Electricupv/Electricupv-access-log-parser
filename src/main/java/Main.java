@@ -2,171 +2,165 @@ import java.util.Scanner;
 
 public class Main {
 
-//Необходимо реализовать метод таким образом, чтобы он возвращал только дробную часть числа х.
-//При выводе результата необходимо обеспечить точность вычислений — три знака после запятой Подсказка: вещественное число
-//может быть преобразовано к целому путем отбрасывания дробной части.
-/*
-    public static void main(String[] args) {
-        System.out.println("Дробная часть");
-        System.out.printf("%.3f%n", fraction(8.54));
-        System.out.printf("%.3f%n", fraction(3));
-        System.out.printf("%.3f%n", fraction(6.87987));
-    }
+    //Модуль числа. Дана следующая сигнатура метода:
+    //public static int abs(int x);
+    //Необходимо реализовать метод таким образом, чтобы он возвращал модуль числа х (если он был положительным, то таким и остается, если он был отрицательным – то необходимо вернуть его без знака минус). При реализации метода не использовать методы класса Math.
 
-    public static double fraction(double x) {
-        double fractionalPart = x - (long) x;
-        return Math.round(fractionalPart * 1000) / 1000.0;
-    }
-
-//Сумма знаков. Дана следующая сигнатура метода:
-//public static int sumLastNums(int x);
-//Необходимо реализовать метод таким образом, чтобы он возвращал результат сложения двух последних знаков числа х, предполагая, что знаков в числе не менее двух. Подсказки:
-
-        public static void main(String[] args) {
-            System.out.println(sumLastNums(4568));
-            System.out.println(sumLastNums(90));
-            System.out.println(sumLastNums(101));
+    public static int module(int x) {
+        if (x < 0) {
+            return -x;
+        } else {
+            return x;
         }
+    }
 
-        public static int sumLastNums(int x) {
-            int lastDigit = x % 10;
-            int secondLastDigit = (x / 10) % 10;
-            return lastDigit + secondLastDigit;
+
+    //Безопасное деление. Дана следующая сигнатура метода:
+    //public static int safeDiv(int x, int y);
+    //Необходимо реализовать метод таким образом, чтобы он возвращал деление x на y, и при этом гарантировал, что не будет выкинута ошибка деления на 0. При делении на 0 следует вернуть из метода число 0. Подсказка: смотри ограничения на операции типов данных.
+
+    public static int safeDiv(int x, int y) {
+        if (y == 0) {
+            return 0;
         }
-
-
-//Букву в число. Дана следующая сигнатура метода:
-//public static int charToNum(char x);
-//Метод принимает символ х, который представляет собой один из “0 1 2 3 4 5 6 7 8 9”. Необходимо реализовать метод таким образом, чтобы он преобразовывал символ в соответствующее число. При реализации метода не использовать методы класса Character. Подсказка: код символа ‘0’ — это число 48
-
-    public static void main(String[] args) {
-        char x = '8';
-        System.out.println("Букву в число");
-        System.out.println(charToNum(x));
+        return x / y;
     }
 
-    public static int charToNum(char x) {
-        return x - '0';
+//Максимум. Дана следующая сигнатура метода:
+//public static int max(int x, int y);
+//Необходимо реализовать метод таким образом, чтобы он возвращал максимальное значение из двух полученных методом чисел. При реализации метода не использовать методы класса Math.
+
+    public static int max(int x, int y) {
+        if (x>y) return x;
+        return y;
     }
 
-//Есть ли позитив. Дана следующая сигнатура метода:
-//public static boolean isPositive(int x);
-//Необходимо реализовать метод таким образом, чтобы он принимал число x и возвращал true если оно положительное.
+//Строка сравнения. Дана следующая сигнатура метода:
+//public static String makeDecision(int x, int y);
+//Необходимо реализовать метод таким образом, чтобы он возвращал строку, которая включает два принятых методом числа и корректно выставленный знак операции сравнения (больше, меньше, или равно).
 
-    public static void main(String[] args) {
-        System.out.println("Есть ли позитив");
-        System.out.println(isPositive(3));
-        System.out.println(isPositive(-5));
-        System.out.println(isPositive(0));
+    public static String makeDecision(int x, int y) {
+        if (x < y) {
+            return x + " < " + y;
+        } else if (x > y) {
+            return x + " > " + y;
+        } else {
+            return x + " == " + y;
+        }
     }
 
-    public static boolean isPositive(int x) {
-        return x > 0;
+//Тройной максимум. Дана следующая сигнатура метода:
+//public static int max3(int x, int y, int z);
+//Необходимо реализовать метод таким образом, чтобы он возвращал максимальное из трех полученных методом чисел. Подсказка: идеальное решение включает всего две инструкции if и не содержит вложенных if. При реализации метода не использовать методы класса Math.
+
+    public static int max3(int x, int y, int z) {
+        int max = x;
+        if (y > max)
+            max = y;
+        if (z > max)
+            max = z;
+        return max;
     }
 
-//Двузначное. Дана следующая сигнатура метода:
-//public static boolean is2Digits(int x);
-//Необходимо реализовать метод таким образом, чтобы он принимал положительное число x и возвращал true если оно двузначное.
+//ройная сумма. Дана следующая сигнатура метода:
+//public static boolean sum3(int x, int y, int z);
+//Необходимо реализовать метод таким образом, чтобы он возвращал true, если два любых числа (из трех принятых) можно сложить так, чтобы получить третье.
 
-    public static void main(String[] args) {
-        System.out.println("Двузначное");
-        System.out.println(is2Digits(32));
-        System.out.println(is2Digits(516));
-        System.out.println(is2Digits(9));
+    public static boolean sum3(int x, int y, int z) {
+        return (x + y == z) || (x + z == y) || (y + z == x);
     }
 
-    public static boolean is2Digits(int x) {
-        return x >= 10 && x < 100;
+//Двойная сумма. Дана следующая сигнатура метода:
+//public static int sum2(int x, int y);
+//Необходимо реализовать метод таким образом, чтобы он возвращал сумму чисел x и y. Однако, если сумма попадает в диапазон от [10, 19], то надо вернуть число 20.
+
+    public static int sum2(int x, int y) {
+        int sum = x + y;
+        if (sum >= 10 && sum <= 19) {
+            return 20;
+        }
+        return sum;
     }
 
-//Большая буква. Дана следующая сигнатура метода:
-//public static boolean isUpperCase(char x);
-//Необходимо реализовать метод таким образом, чтобы он принимал символ x и возвращал true если это большая буква в диапазоне от ‘A’ до ‘Z’. При реализации метода не использовать методы класса Character.
+//Тридцать пять. Дана следующая сигнатура метода:
+//public static boolean is35(int x);
+//Необходимо реализовать метод таким образом, чтобы он возвращал true, если число x делится нацело на 3 или 5. При этом, если оно делится и на 3, и на 5, то вернуть надо false. Подсказка: оператор % позволяет получить остаток от деления.
 
-    public static void main(String[] args) {
-        System.out.println("Большая буква");
-        System.out.println(isUpperCase('D'));
-        System.out.println(isUpperCase('q'));
+    public static boolean is35(int x) {
+        //возьмем Исключающее ИЛИ (знак ^ читается как XOR)
+        return (x % 3 == 0) ^ (x % 5 == 0);
     }
 
-    public static boolean isUpperCase(char x) {
-        return x >= 'A' && x <= 'Z';
+//Волшебная шестерка. Дана следующая сигнатура метода:
+//public static boolean magic6(int x, int y);
+//Необходимо реализовать метод таким образом, чтобы он возвращал true, если одно из принятых методом чисел равно шести, или их сумма равна шести, или разница между ними равна шести.
+
+    public static boolean magic6(int x, int y) {
+        return x == 6
+                || y == 6
+                || (x + y == 6)
+                || (x - y == 6)
+                || (y - x == 6);
     }
 
-//Диапазон. Дана следующая сигнатура метода:
-//public static boolean isInRange(int a, int b, int num);
-//Метод принимает левую и правую границу [a и b] некоторого числового диапазона. Необходимо реализовать метод таким образом, чтобы он возвращал true, если num входит в указанный диапазон (включая границы). Обратите внимание, что отношение a и b заранее неизвестно (неясно кто из них больше, а кто меньше)
+//Возраст. Дана следующая сигнатура метода:
+//public static String age(int x);
+//Необходимо реализовать метод таким образом, чтобы он возвращал строку, в которой сначала будет число х, а затем одно из слов:
+//год года лет
+//Слово “год” добавляется, если число х заканчивается на 1, кроме чисел оканчивающихся на 11.
+//Слово “года” добавляется, если число х заканчивается на 2, 3 или 4, кроме чисел оканчивающихся на 12, 13, 14.
+//Слово “лет” добавляется во всех остальных случаях.
+//Подсказка: оператор % позволяет получить остаток от деления.
 
-    public static void main(String[] args) {
-        System.out.println("Диапазон");
-        System.out.println(isInRange(5, 1, 3));
-        System.out.println(isInRange(2, 15, 33));
-        System.out.println(isInRange(10, 20, 15));
+    public static String age(int x) {
+        int lastDigit = x % 10;
+        int lastTwoDigits = x % 100;
+
+        if (lastDigit == 1 && lastTwoDigits != 11) {
+            return x + " год";
+        } else if ((lastDigit >= 2 && lastDigit <= 4) && !(lastTwoDigits >= 12 && lastTwoDigits <= 14)) {
+            return x + " года";
+        } else {
+            return x + " лет";
+        }
     }
 
-    public static boolean isInRange(int a, int b, int num) {
-        int min = Math.min(a, b);
-        int max = Math.max(a, b);
-        return num >= min && num <= max;
+//День недели. Дана следующая сигнатура метода:
+//public static String day(int x);
+//Метод принимает число x, обозначающее день недели. Необходимо реализовать метод таким образом, чтобы он возвращал строку, которая будет обозначать текущий день недели, где 1- это понедельник, а 7 – воскресенье. Если число не от 1 до 7 то верните текст “это не день недели”. Вместо if в данной задаче используйте switch.
+
+    public static String day(int x) {
+        switch (x) {
+            case 1: return "понедельник";
+            case 2: return "вторник";
+            case 3: return "среда";
+            case 4: return "четверг";
+            case 5: return "пятница";
+            case 6: return "суббота";
+            case 7: return "воскресенье";
+            default: return "это не день недели";
+        }
     }
 
-//Делитель. Дана следующая сигнатура метода:
-//public static boolean isDivisor (int a, int b);
-//Необходимо реализовать метод таким образом, чтобы он возвращал true если любое из принятых чисел делит другое нацело.
+//Вывод дней недели. Дана следующая сигнатура метода:
+//public static void printDays(String x);
+//В качестве параметра метод принимает строку, в которой записано название дня недели. Необходимо реализовать метод таким образом, чтобы он выводил на экран название переданного в него дня и всех последующих до конца недели дней. Если в качестве строки передан не день, то выводится текст “это не день недели”. Первый день понедельник, последний – воскресенье. Вместо if в данной задаче используйте switch.
+//Обратите внимание, что делать для каждого из case вывод сразу всех дней (например case “понедельник” sout(“понедельник вторник среда четверг пятница суббота воскресенье”) – решение явно некорректное. Попробуйте применить для решения задачи принцип падения сквозь метки.
 
-    public static void main(String[] args) {
-        System.out.println("Делитель");
-        System.out.println(isDivisor(3, 6));
-        System.out.println(isDivisor(2, 15));
+    public static void printDays(String x) {
+        switch (x) {
+            case "понедельник": System.out.println("понедельник");
+            case "вторник": System.out.println("вторник");
+            case "среда": System.out.println("среда");
+            case "четверг": System.out.println("четверг");
+            case "пятница": System.out.println("пятница");
+            case "суббота": System.out.println("суббота");
+            case "воскресенье": System.out.println("воскресенье");
+                break;
+            default:
+                System.out.println("это не день недели");
+        }
     }
-
-    public static boolean isDivisor(int a, int b) {
-        return (a != 0 && b % a == 0) || (b != 0 && a % b == 0);
-    }
-
-//Равенство. Дана следующая сигнатура метода:
-//public static boolean isEqual (int a, int b, int c);
-//Необходимо реализовать метод таким образом, чтобы он возвращал true если все три полученных методом числа равны
-
-    public static void main(String[] args) {
-        System.out.println("Равенство");
-        System.out.println(isEqual(3, 3, 3));
-        System.out.println(isEqual(2, 15, 2));
-    }
-
-    public static boolean isEqual(int a, int b, int c) {
-        return a == b && b == c;
-    }
-
-
-//Многократный вызов. Дан следующий метод:
-//public static int lastNumSum(int a, int b){
- //       return (a%10)+(b%10);
- //   }
-
-//Выполните с его помощью последовательное сложение пяти чисел: 5, 11, 123, 14, 1, и результат выведите на экран. Постарайтесь выполнить задачу, используя минимально возможное количество вспомогательных переменных.
-// Ответом на данное задание является код метода main, в котором происходит вызов данной функции.
-/* Решение выполняется в таком порядке:
-            5+11 это 6
-            6+123 это 9
-            9+14 это 13
-            13+1 это 4
-    Итого 4
-*/
-
-    public static void main(String[] args) {
-        System.out.println("Многократный вызов");
-        int result = lastNumSum(5, 11);    // 5+11 = 6
-        result = lastNumSum(result, 123);  // 6+123 = 9
-        result = lastNumSum(result, 14);   // 9+14 = 13
-        result = lastNumSum(result, 1);    // 13+1 = 4
-        System.out.println(result);        // Вывод: 4
-    }
-
-    public static int lastNumSum(int a, int b) {
-        return (a % 10) + (b % 10);
-    }
-
 }
 
 
