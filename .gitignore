@@ -1,7 +1,6 @@
 .idea/
 out/
 !**/src/**/resources/
-pom.xml
 target/
 !.mvn/wrapper/maven-wrapper.jar
 !**/src/main/**/target/
