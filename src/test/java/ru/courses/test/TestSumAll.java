@@ -2,7 +2,7 @@ package ru.courses.test;
 
 import ru.courses.numbers.*;
 
-public class TestSums {
+public class TestSumAll {
     
     public static void main(String[] args) {
         System.out.println("=== Выполнение заданий по сложению ===\n");
