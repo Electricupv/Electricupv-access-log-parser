@@ -19,8 +19,8 @@ public class Start2 {
 
         // 4) Рассчитываем суммарную длину массива линий
         double sumSeg = 0;
-        for (int i = 0; i < segments.length; i++) {
-            sumSeg += segments[i].getLength();
+        for (Line segment : segments) {
+            sumSeg += segment.getLength();
         }
         System.out.println("Сумма длин сегментов: " + sumSeg);
 

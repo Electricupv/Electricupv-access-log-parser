@@ -1,11 +1,5 @@
-public class PolyLine {
+public class PolyLine implements Measurable {
     public Point[] points;
-
-    // Можно создать пустую ломаную
-    public PolyLine() {
-        this.points = new Point[0];
-    }
-
     // Можно сразу указать набор точек
     public PolyLine(Point... points) {
         this.points = points;
@@ -13,13 +7,14 @@ public class PolyLine {
 
     // Текстовое представление: "Линия [T1,T2,…,TN]"
     public String toString() {
-        String res = "polyLine [";
+        StringBuilder resBuilder = new StringBuilder("polyLine [");
         for (int i = 0; i < points.length; i++) {
-            res += points[i];
+            resBuilder.append(points[i]);
             if (i < points.length - 1) {
-                res += ",";
+                resBuilder.append(",");
             }
         }
+        String res = resBuilder.toString();
         res += "]";
         return res;
     }
@@ -40,8 +35,8 @@ public class PolyLine {
     public double getLength() {
         double sum = 0;
         Line[] ls = getLines();
-        for (int i = 0; i < ls.length; i++) {
-            sum += ls[i].getLength();
+        for (Line l : ls) {
+            sum += l.getLength();
         }
         return sum;
     }
