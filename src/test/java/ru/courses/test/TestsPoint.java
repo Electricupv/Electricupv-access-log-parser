@@ -1,4 +1,8 @@
-public class Tests {
+package ru.courses.test;
+
+import ru.courses.geometry.Point;
+
+public class TestsPoint {
 
     public static void main(String[] args) {
         Point point1 = new Point(1, 3);

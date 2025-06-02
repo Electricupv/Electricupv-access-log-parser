@@ -1,4 +1,10 @@
-public class Start2 {
+package ru.courses.test;
+
+import ru.courses.geometry.Line;
+import ru.courses.geometry.Point;
+import ru.courses.geometry.PolyLine;
+
+public class TestPolyLine {
     public static void main(String[] args) {
         // 1) Создаём ломаную через указанные точки
         PolyLine pl = new PolyLine(

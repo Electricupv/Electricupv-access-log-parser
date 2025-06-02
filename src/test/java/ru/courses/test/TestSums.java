@@ -1,11 +1,8 @@
-import ru.courses.numbers.Fraction;
-import ru.courses.numbers.NumberUtils;
+package ru.courses.test;
 
-/**
- * Тестовый класс для выполнения конкретных заданий по сложению
- * Задания из "Практика ООП. Полиморфизм #6. Сложение"
- */
-public class TestSumAll {
+import ru.courses.numbers.*;
+
+public class TestSums {
     
     public static void main(String[] args) {
         System.out.println("=== Выполнение заданий по сложению ===\n");

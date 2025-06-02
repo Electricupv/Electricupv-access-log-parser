@@ -1,3 +1,7 @@
+package ru.courses.test;
+
+import ru.courses.numbers.Fraction;
+
 /**
  * Тестовый класс для демонстрации работы Fraction как подтипа Number
  */

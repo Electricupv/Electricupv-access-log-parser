@@ -1,3 +1,5 @@
+package ru.courses.numbers;
+
 public class Fraction extends Number {
     private final int numerator;
     private final int denominator;
@@ -34,19 +36,4 @@ public class Fraction extends Number {
     public String toString() {
         return numerator + "/" + denominator;
     }
-
-    // Переопределяем equals и hashCode для корректной работы с Number
-    @Override
-    public boolean equals(Object obj) {
-        if (this == obj) return true;
-        if (obj == null || getClass() != obj.getClass()) return false;
-        
-        Fraction fraction = (Fraction) obj;
-        return numerator == fraction.numerator && denominator == fraction.denominator;
-    }
-
-    @Override
-    public int hashCode() {
-        return 31 * numerator + denominator;
-    }
-}
+} 

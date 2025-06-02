@@ -1,4 +1,9 @@
-public class Start {
+package ru.courses.test;
+
+import ru.courses.geometry.Line;
+import ru.courses.geometry.Point;
+
+public class TestLine {
     public static void main(String[] args) {
         // создаём три линии
         Line line1 = new Line(new Point(1, 3), new Point(5, 8));

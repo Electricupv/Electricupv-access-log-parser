@@ -1,3 +1,10 @@
+package ru.courses.test;
+
+import ru.courses.geometry.ClosedPolyLine;
+import ru.courses.geometry.Line;
+import ru.courses.geometry.Point;
+import ru.courses.geometry.PolyLine;
+
 public class TestClosedPolyLine {
     public static void main(String[] args) {
         // Создаем точки для тестирования

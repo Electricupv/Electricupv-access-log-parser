@@ -1,6 +1,9 @@
-/**
+package ru.courses.test; /**
  * Тестовый класс для демонстрации полиморфизма с интерфейсом Measurable
  */
+import ru.courses.geometry.*;
+import ru.courses.measurable.*;
+
 public class TestPolymorphism {
     public static void main(String[] args) {
         // Создаем точки для тестирования
